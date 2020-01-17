@@ -1,10 +1,18 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
+
+import twitter
+
+# initialize api instance
+twitter_api = twitter.Api(consumer_key='',
+                        consumer_secret='',
+                        access_token_key='',
+                        access_token_secret='')
 
 def buildTrainingSet(corpusFile, tweetDataFile):
 
     import csv
     import time
-    
+
     corpus = []
     
     with open(corpusFile,'rb') as csvfile:
