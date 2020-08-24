@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
 # Daily BC Politics Tweet Scraper
-# See crontab -l for job time
+# Cron Job scheduled nightly at 00:00
+# e.g. 0 0 * * * $(which python3) /path/to/script.py
 
 import os
 import datetime
@@ -10,7 +11,9 @@ import tweepy
 import csv
 from tweepy.auth import OAuthHandler
 
-# Twitter API Keys / Authentication Method
+# Twitter API Keys & Authentication Method
+# Your API keys should be environment variables
+# e.g. export TWITTER_CONSUMER_KEY='YOUR_KEY'
 
 consumer_key = os.environ.get("TWITTER_CONSUMER_KEY")
 consumer_secret = os.environ.get("TWITTER_CONSUMER_SECRET")
@@ -22,15 +25,12 @@ auth.set_access_token(access_token, access_token_secret)
 
 # Other Variables
 
-csvFile = open('bcpoli.csv', 'a')
+csvFile = open('bcpoli.csv', 'a') 
 csvWriter = csv.writer(csvFile)
-date = (datetime.date.today() - datetime.timedelta(days=1))
+date = (datetime.date.today() - datetime.timedelta(days=1)) 
 
 for tweet in tweepy.Cursor(api.search,q="#bcpoli",count=100,
                            lang="en",
-                           since=date).items():
+                           since=date).items(): # Pulls all bcpoli tweets from previous day
     print (tweet.id, tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.id, tweet.created_at, tweet.text.encode('utf-8')])
-
-# To run on headless pi, via SSH that won't terminate the script on hangup
-# screen -S bcpoli -dm bash -c 'python ./bcpoli.py'
