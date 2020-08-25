@@ -27,10 +27,12 @@ auth.set_access_token(access_token, access_token_secret)
 
 csvFile = open('bcpoli.csv', 'a') 
 csvWriter = csv.writer(csvFile)
-date = (datetime.date.today() - datetime.timedelta(days=1)) 
+ystd = (datetime.date.today() - datetime.timedelta(days=1))
+today = (datetime.date.today())
 
 for tweet in tweepy.Cursor(api.search,q="#bcpoli",count=100,
                            lang="en",
-                           since=date).items(): # Pulls all bcpoli tweets from previous day
+                           since=ystd,
+                           until=today).items(): # Pulls all bcpoli tweets from previous day
     print (tweet.id, tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.id, tweet.created_at, tweet.text.encode('utf-8')])
