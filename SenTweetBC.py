@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
 # Daily BC Politics Tweet Scraper
-# Cron Job scheduled nightly at 00:00
-# e.g. 0 0 * * * $(which python3) /path/to/script.py
+# See crontab -l for job time
 
 import os
 import datetime
