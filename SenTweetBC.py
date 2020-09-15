@@ -24,14 +24,16 @@ auth.set_access_token(access_token, access_token_secret)
 
 # Other Variables
 
-csvFile = open('bcpoli.csv', 'a') 
+csvFile = open('bcpoli.csv', 'a') # Create/Open a file to append data to
 csvWriter = csv.writer(csvFile)
 ystd = (datetime.date.today() - datetime.timedelta(days=1))
 today = (datetime.date.today())
 
+# Search for any hashtag by modifying q="#TERM"
+
 for tweet in tweepy.Cursor(api.search,q="#bcpoli",count=100,
                            lang="en",
                            since=ystd,
-                           until=today).items(): # Pulls all bcpoli tweets from previous day
+                           until=today).items(): # Pulls all tweets from previous day
     print (tweet.id, tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.id, tweet.created_at, tweet.text.encode('utf-8')])
