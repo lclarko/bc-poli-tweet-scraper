@@ -11,3 +11,7 @@
 * You must have Twitter API keys.
     * A [Twitter Developer account](https://developer.twitter.com/en/apply-for-access) and an approved application is the easiest way to obtain these.
 * It's a good idea to review the [restricted uses of the Twitter APIs](https://developer.twitter.com/en/developer-terms/more-on-restricted-use-cases), as there are many terms that you have to accept, especially if you plan on redistributing any twitter data.
+
+## Why?
+* For the sake of personal projects, of course!
+* Why not build an (arguably) interesting data set, while simultaneously working on your Python skills, learning about the Twitter API, using that Raspberry Pi you bought and fighting with cron?
