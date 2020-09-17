@@ -5,13 +5,12 @@
 
 import os
 import datetime
-import twitter
 import tweepy
 import csv
 from tweepy.auth import OAuthHandler
 
 # Twitter API Keys & Authentication Method
-# Your API keys should be environment variables
+# Your API keys should be stored as environment variables
 # e.g. export TWITTER_CONSUMER_KEY='YOUR_KEY'
 
 consumer_key = os.environ.get("TWITTER_CONSUMER_KEY")

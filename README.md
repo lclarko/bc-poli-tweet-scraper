@@ -2,8 +2,9 @@
 
 ## Summary
 
-* A python script that utilizes [Tweepy](http://docs.tweepy.org/en/latest/) to scrap #bcpoli tweets from the previous day.
-* The script can be easily modified to pull tweets relating to any string, just change -> ```q="#bcpoli"```
+* This is a simple Python script that utilizes [Tweepy](http://docs.tweepy.org/en/latest/) to scrap #bcpoli tweets from the previous day.
+* The script only pulls three tweet attributes, though you can [add more](https://developer.twitter.com/en/docs/twitter-api/v1/data-dictionary/overview/tweet-object), if you're intersted in other data.
+* The script can be easily modified to pull tweets relating to any string, just change ```"#bcpoli"``` in the for loop.
 * By default, the csv file this script generates will be in the same directory as the script. You can modify the ```csvFile``` variable to change this.
 
 ## Requirements
